@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Weather</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="animated-bg">
+    <div class="cloud" style="top: 50px; left: -200px;"></div>
+    <div class="cloud" style="top: 150px; left: -400px;"></div>
+    <div class="cloud" style="top: 250px; left: -600px;"></div>
+  </div>
+  <div class="container">
+    <div class="left-box">
+      <div>
+        <div class="day-name" id="day"></div>
+        <div class="date-location" id="location"></div>
+        <div id="time"></div>
+      </div>
+      <div class="temp-icon">☀️</div>
+      <div class="temperature" id="temp">19°C</div>
+      <div class="description" id="desc">Sunny</div>
+    </div>
+    <div class="right-box">
+      <div class="top-bar">
+        <div class="search-box">
+          <input type="text" id="search" placeholder="Enter city">
+          <button onclick="getWeather()">Search</button>
+        </div>
+        <button class="toggle-mode" onclick="toggleMode()">Toggle Mode</button>
+      </div>
+      <div class="metrics">
+        <p>PRECIPITATION: <span id="precip">0 mm</span></p>
+        <p>HUMIDITY: <span id="humidity">12%</span></p>
+        <p>WIND: <span id="wind">5.8 km/h</span></p>
+      </div>
+      <div class="forecast" id="forecast">
+        <div class="forecast-day active" onclick="highlightDay(this)">
+          <p>Tue</p>
+          <p>29°C</p>
+        </div>
+        <div class="forecast-day" onclick="highlightDay(this)">
+          <p>Wed</p>
+          <p>25°C</p>
+        </div>
+        <div class="forecast-day" onclick="highlightDay(this)">
+          <p>Thu</p>
+          <p>27°C</p>
+        </div>
+        <div class="forecast-day" onclick="highlightDay(this)">
+          <p>Fri</p>
+          <p>31°C</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+      overflow: hidden;
+    }
+    .animated-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .cloud {
+      position: absolute;
+      width: 150px;
+      height: 60px;
+      background: #fff;
+      border-radius: 50%;
+      animation: moveClouds 10s linear infinite;
+      opacity: 0.3;
+    }
+    .cloud::before,
+    .cloud::after {
+      content: '';
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+    }
+    .cloud::before {
+      width: 80px;
+      height: 80px;
+      top: -30px;
+      left: 10px;
+    }
+    .cloud::after {
+      width: 100px;
+      height: 100px;
+      top: -50px;
+      left: 50px;
+    }
+    @keyframes moveClouds {
+      0% {
+        transform: translateX(-200px);
+      }
+      100% {
+        transform: translateX(100vw);
+      }
+    }
+    .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: row;
+      width: 700px;
+      height: 350px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(12px);
+      color: #fff;
+      overflow: hidden;
+    }
+    .left-box, .right-box {
+      padding: 20px;
+    }
+    .left-box {
+      width: 50%;
+      background: linear-gradient(to top left, #58c9b9, #519d9e);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      color: #000;
+    }
+    .left-box .day-name,
+    .left-box .date-location,
+    .left-box #time {
+      color: black;
+    }
+    .left-box .day-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .left-box .date-location {
+      font-size: 1rem;
+      opacity: 0.7;
+    }
+    .left-box .temp-icon {
+      font-size: 3rem;
+    }
+    .left-box .temperature {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    .left-box .description {
+      font-size: 1.1rem;
+    }
+    .right-box {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #fff;
+    }
+    .top-bar {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    .search-box {
+      display: flex;
+      width: 100%;
+      margin-top: 10px;
+    }
+    .search-box input {
+      flex: 1;
+      padding: 8px;
+      border-radius: 10px 0 0 10px;
+      border: none;
+      outline: none;
+    }
+    .search-box button,
+    .toggle-mode {
+      padding: 8px 15px;
+      border-radius: 0 10px 10px 0;
+      background: linear-gradient(to right, #6aafff, #b8d8ff);
+      border: none;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s;
+    }
+    .search-box button:hover,
+    .toggle-mode:hover {
+      background: linear-gradient(to right, #90caff, #d0e8ff);
+    }
+    .search-box button:active,
+    .toggle-mode:active {
+      transform: scale(0.95);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    .metrics {
+      font-size: 0.9rem;
+    }
+    .forecast {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    .forecast-day {
+      text-align: center;
+      padding: 10px;
+      border-radius: 10px;
+      background: #444;
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .forecast-day:hover {
+      transform: scale(1.05);
+    }
+    .forecast-day.active {
+      background: #00aaff;
+      color: #fff;
+    }
+
+    body.light-mode {
+      background: linear-gradient(to bottom, #0e2e4a, #a5caec);
+    }
+    body.light-mode .container {
+      color: #000;
+    }
+    body.light-mode .right-box {
+      color: #000;
+    }
+    body.light-mode .search-box button,
+    body.light-mode .toggle-mode {
+      background: linear-gradient(to right, #c4e4ff, #e7f8ff);
+    }
+    #time {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #000;
+    }
